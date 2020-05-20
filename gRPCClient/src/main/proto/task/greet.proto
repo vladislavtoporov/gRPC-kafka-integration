@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package task;
+
+option java_package = "com.mera.education.grpc.proto.task";
+option java_multiple_files = true;
+
+message Task {
+    string message = 1;
+
+};
+
+message TaskRequest {
+    Task task = 1;
+};
+
+message TaskResponse {
+    string result = 1;
+};
+
+message TaskManyTimesRequest {
+    Task task = 1;
+};
+
+message TaskManyTimesResponse {
+    string result = 1;
+};
+
+message LongTaskRequest {
+    Task task = 1;
+};
+
+message LongTaskResponse {
+    string result = 1;
+};
+
+message TaskEveryoneRequest {
+    Task task = 1;
+};
+
+message TaskEveryoneResponse {
+    string result = 1;
+};
+
+service TaskService {
+    rpc Task(TaskRequest) returns (TaskResponse) {};
+    rpc TaskManyTimes(TaskManyTimesRequest) returns (stream TaskManyTimesResponse) {};
+    rpc LongTask(stream LongTaskRequest) returns (LongTaskResponse) {};
+    rpc TaskEveryone(stream TaskEveryoneRequest) returns (stream TaskEveryoneResponse) {};
+};
+

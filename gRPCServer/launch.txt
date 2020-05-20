@@ -1,0 +1,1 @@
+mvn -Dexec.mainClass=com.mera.education.grpc.task.Application -Dexec.classpathScope=test compile test-compile exec:java
